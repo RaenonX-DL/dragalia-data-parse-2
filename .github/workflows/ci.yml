@@ -1,0 +1,104 @@
+name: CI
+
+on: [ push ]
+
+jobs:
+  quality:
+    name: Quality Check
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Setup Node.js 14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint with ESLint
+        run: npm run lint
+
+  build:
+    name: Build
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Setup Node.js 14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build app
+        run: npm run build
+
+  test:
+    name: Test + Coverage
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Setup Node.js 14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm run test:ci-jest
+
+      - name: Report coverage (Codacy)
+        uses: codacy/codacy-coverage-reporter-action@v1
+        if: success() || failure()    # Run this step even if previous step failed
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: clover.xml
+
+      - name: Report coverage (Github Actions)
+        uses: dorny/test-reporter@v1
+        if: success() || failure()    # Run this step even if previous step failed
+        with:
+          name: jest test             # Name of the check run which will be created
+          path: junit.xml             # Path to test results
+          reporter: jest-junit        # Format of test results
+
+  deploy-resources:
+    name: Deploy Resources
+
+    needs: [ quality, build, test ]
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Dispatch request
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.GH_TOKEN_SITE_RESOURCE }}
+          repository: RaenonX-DL/dragalia-site-resources
+          event-type: parser-2-updated
+          client-payload: '{"message": "${{ github.repository }}@${{ github.sha }} - ${{ github.run_number }}"}'

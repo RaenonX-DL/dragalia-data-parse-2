@@ -59,6 +59,10 @@ rules:
         order: asc
         caseInsensitive: true
 
+  import/newline-after-import:
+    - error
+    - count: 2
+
   space-in-parens:
     - error
     - never

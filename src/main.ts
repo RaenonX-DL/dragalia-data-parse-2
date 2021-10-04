@@ -1,5 +1,4 @@
-export const printSomething = (): void => {
-  console.log('Hello!');
-};
+import {printSomething} from './dummy';
+
 
 printSomething();
