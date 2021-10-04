@@ -1,0 +1,3 @@
+[submodule "dragalia-data-depot"]
+	path = .data
+	url = https://github.com/RaenonX-DL/dragalia-data-depot
