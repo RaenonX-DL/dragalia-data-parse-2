@@ -1,0 +1,29 @@
+import {Condition} from '../../../enums/condition';
+import {OfficialSkillInfo} from '../official';
+import {AssetText, CustomAssetText} from '../text';
+import {BasicUnitInfo} from '../unitInfo';
+
+
+export type CommonSkillInfo = {
+  identifiers: Array<CustomAssetText>,
+  internalId: number,
+  name: AssetText,
+  spMax: number,
+  spGradualPctMax: number,
+  sharable: boolean,
+  ssCost: number,
+  ssSp: number
+};
+
+export type SkillPossibility<T extends CommonSkillInfo> = {
+  condition: Array<Condition>,
+  unit: BasicUnitInfo,
+  skill: T
+};
+
+export type SkillInfoCollection<T extends CommonSkillInfo> = Array<SkillPossibility<T>>;
+
+export type SkillInfoBundle<T extends CommonSkillInfo> = {
+  official: Array<OfficialSkillInfo>,
+  atkSkills: SkillInfoCollection<T>,
+};

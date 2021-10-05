@@ -1,13 +1,12 @@
+# Dependencies
+
 /node_modules/*
 
-# build artifacts
+# Build artifacts
 
 dist/*
 coverage/*
 
-# data definition files
+# Type definitions
 
 **/*.d.ts
-
-# custom definition files
-/src/types/resources
