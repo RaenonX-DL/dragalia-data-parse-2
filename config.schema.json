@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/RaenonX-DL/dragalia-data-parse-2/main/config.schema.json",
+  "title": "Dragalia Lost Gen-2 Data Parser Config Schema",
+  "description": "JSON Schema for the Gen-2 Dragalia data parser config.",
+  "type": "object",
+  "properties": {
+    "export": {
+      "type": "object",
+      "description": "Export related configs.",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "Root directory of the exported files."
+        }
+      },
+      "required": [
+        "path"
+      ],
+      "additionalProperties": false
+    },
+    "data": {
+      "type": "object",
+      "description": "Data related configs.",
+      "properties": {
+        "asset": {
+          "type": "string",
+          "description": "Root directory of the assets. This should have a valid path of `assets/_gluonresources`."
+        },
+        "custom": {
+          "type": "string",
+          "description": "Root directory of the custom data."
+        }
+      },
+      "required": [
+        "asset",
+        "custom"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "export",
+    "data"
+  ],
+  "additionalProperties": false
+}

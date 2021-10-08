@@ -8,6 +8,10 @@ const config: Config.InitialOptions = {
   transform: {
     '^.+\\.(ts|tsx)?$': 'ts-jest',
   },
+  // Setup
+  setupFilesAfterEnv: [
+    './tests/fixtures.ts',
+  ],
   // Coverage
   collectCoverageFrom: [
     // Source files

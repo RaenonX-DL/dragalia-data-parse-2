@@ -1,0 +1,6 @@
+export:
+  path: .export
+
+data:
+  asset: .data
+  custom: data

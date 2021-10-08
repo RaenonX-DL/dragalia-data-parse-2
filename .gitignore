@@ -16,3 +16,6 @@ junit.xml
 # Batch files
 *.sh
 *.bat
+
+# Output files
+.export
