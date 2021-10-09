@@ -3,7 +3,7 @@ import {OfficialAsset} from '../../base';
 import {CharaEntry, CharaOriginal} from './type';
 
 
-export class CharaAsset extends OfficialAsset<string, CharaOriginal, CharaEntry> {
+export class CharaAsset extends OfficialAsset<number, CharaOriginal, CharaEntry> {
   constructor(environment: Environment) {
     super({
       environment,

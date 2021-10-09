@@ -1,6 +1,6 @@
 import {MasterEntry, OfficialEntry} from '../../types';
 
 
-export type CharaOriginal = OfficialEntry<string>;
+export type CharaOriginal = OfficialEntry<number>;
 
-export type CharaEntry = MasterEntry<string>;
+export type CharaEntry = MasterEntry<number>;
