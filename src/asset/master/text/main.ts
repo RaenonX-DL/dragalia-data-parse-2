@@ -1,5 +1,6 @@
 import {Environment} from '../../../process/env';
 import {OfficialAsset} from '../base';
+import {transformTextEntry} from './transform';
 import {TextEntry, TextOriginal} from './type';
 
 
@@ -8,10 +9,7 @@ export class TextAsset extends OfficialAsset<string, TextOriginal, TextEntry> {
     super({
       environment,
       fileName: 'TextLabel',
-      transform: (entry) => ({
-        id: entry._Id,
-        text: entry._Text,
-      }),
+      transform: transformTextEntry,
     });
   }
 }
