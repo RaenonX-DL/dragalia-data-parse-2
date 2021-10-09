@@ -4,7 +4,7 @@ import {Environment} from '../../process/env';
 import {DataIdType, MasterEntry, OfficialData, OfficialEntry} from './types';
 
 
-type OfficialAssetInitOptions<D, T> = {
+export type OfficialAssetInitOptions<D, T> = {
   environment: Environment,
   fileName: string,
   transform: (entry: D) => T,
