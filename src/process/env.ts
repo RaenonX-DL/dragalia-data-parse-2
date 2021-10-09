@@ -13,6 +13,10 @@ export class Environment {
     this.config = yaml.load(fs.readFileSync(configPath, 'utf-8')) as Config;
   }
 
+  get skillDataDir(): string {
+    return path.join(this.config.data.custom, 'skill');
+  }
+
   getMasterAssetPath(fileNameWithExt: string): string {
     return path.join(this.config.data.asset, 'assets', '_gluonresources', 'resources', 'master', fileNameWithExt);
   }
