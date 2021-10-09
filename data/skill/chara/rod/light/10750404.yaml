@@ -1,0 +1,29 @@
+- skillDataId: 107504041
+  identifier:
+    - cht: S1 (0 條)
+      en: S1 (0 Gauge)
+      jp: TBA
+    - cht: S1 (1 條)
+      en: S1 (1 Gauge)
+      jp: TBA
+    - cht: S1 (3 條)
+      en: S1 (3 Gauges)
+      jp: TBA
+  conditions: [[]]
+  hitLabels:
+    - ROD_131_04_H01_LV03
+
+- skillDataId: 107504043
+  identifier:
+    - cht: S1 (0 條)
+      en: S1 (0 Gauge)
+      jp: TBA
+    - cht: S1 (1 條)
+      en: S1 (1 Gauge)
+      jp: TBA
+    - cht: S1 (3 條)
+      en: S1 (3 Gauges)
+      jp: TBA
+  conditions: [[]]
+  hitLabels:
+    - ROD_131_04_H02_LV03

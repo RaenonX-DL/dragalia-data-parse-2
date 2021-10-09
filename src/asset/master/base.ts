@@ -12,7 +12,7 @@ type OfficialAssetInitOptions<D, T> = {
 
 export class OfficialAsset<K extends DataIdType, D extends OfficialEntry<K>, T extends MasterEntry<K>> {
   data: Array<T>;
-  lookup: {[id in string]: T};
+  lookup: {[id in string]?: T};
 
   protected constructor({environment, fileName, transform}: OfficialAssetInitOptions<D, T>) {
     const fileContent = fs.readFileSync(
