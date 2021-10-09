@@ -1,5 +1,6 @@
 import {Environment} from '../../../../process/env';
 import {OfficialAsset} from '../../base';
+import {transformCharaEntry} from './transform';
 import {CharaEntry, CharaOriginal} from './type';
 
 
@@ -8,9 +9,7 @@ export class CharaAsset extends OfficialAsset<number, CharaOriginal, CharaEntry>
     super({
       environment,
       fileName: 'CharaData',
-      transform: (entry) => ({
-        id: entry._Id,
-      }),
+      transform: transformCharaEntry,
     });
   }
 }
