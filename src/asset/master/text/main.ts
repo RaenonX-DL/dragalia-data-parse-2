@@ -29,7 +29,15 @@ export class TextAsset extends LocalizedAsset<string, TextOriginal, TextEntry, T
   getAssetText(id: string): AssetText {
     return this.getDataOfIdAllLang(
       id,
-      (lang, entry) => entry?.text || `${id} (${lang.toUpperCase()})`,
+      (lang, entry) => {
+        const text = entry?.text;
+
+        if (!text) {
+          throw new Error(`Text for ${id} in ${lang} does not exist`);
+        }
+
+        return text;
+      },
     );
   }
 }
