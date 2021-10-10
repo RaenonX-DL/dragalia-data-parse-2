@@ -1,4 +1,4 @@
-import {AssetManager} from '../asset/manager';
+import {AssetManager} from '../asset/manager/main';
 import {Environment} from './env';
 
 
