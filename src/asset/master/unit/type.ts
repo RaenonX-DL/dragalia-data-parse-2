@@ -1,5 +1,5 @@
 import {Element} from '../../../types/enums/element';
-import {MasterEntry, OfficialEntry} from '../types';
+import {MasterEntry, OfficialEntry} from '../base/types';
 
 
 export type UnitOriginal = OfficialEntry<number> & {

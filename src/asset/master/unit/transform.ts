@@ -1,5 +1,5 @@
 import {Element} from '../../../types/enums/element';
-import {transformOfficialEntry} from '../transform';
+import {transformOfficialEntry} from '../base/transform';
 import {UnitEntry, UnitOriginal} from './type';
 
 

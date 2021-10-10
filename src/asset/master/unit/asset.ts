@@ -1,4 +1,4 @@
-import {OfficialAsset, OfficialAssetInitOptions} from '../base';
+import {OfficialAsset, OfficialAssetInitOptions} from '../base/main';
 import {UnitEntry, UnitOriginal} from './type';
 
 

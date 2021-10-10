@@ -1,5 +1,5 @@
-import {fixture} from '../../../tests/fixtures';
-import {TextAsset} from './text/main';
+import {fixture} from '../../../../tests/fixtures';
+import {TextAsset} from '../text/main';
 
 
 describe('Base official asset', () => {

@@ -1,4 +1,4 @@
-import {MasterEntry, OfficialEntry} from '../types';
+import {MasterEntry, OfficialEntry} from '../base/types';
 
 
 export type TextOriginal = OfficialEntry<string> & {

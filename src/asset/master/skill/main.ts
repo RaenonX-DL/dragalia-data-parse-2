@@ -1,5 +1,5 @@
 import {Environment} from '../../../process/env';
-import {OfficialAsset} from '../base';
+import {OfficialAsset} from '../base/main';
 import {transformSkillEntry} from './transform';
 import {SkillEntry, SkillOriginal} from './type';
 

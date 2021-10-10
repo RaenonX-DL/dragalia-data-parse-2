@@ -1,5 +1,5 @@
 import {Environment} from '../../../process/env';
-import {OfficialAsset} from '../base';
+import {OfficialAsset} from '../base/main';
 import {transformTextEntry} from './transform';
 import {TextEntry, TextOriginal} from './type';
 

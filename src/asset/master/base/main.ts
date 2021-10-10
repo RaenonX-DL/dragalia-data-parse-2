@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 
-import {Environment} from '../../process/env';
+import {Environment} from '../../../process/env';
 import {DataIdType, MasterEntry, OfficialData, OfficialEntry} from './types';
 
 
