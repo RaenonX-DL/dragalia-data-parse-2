@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 
 import {Environment} from '../../../process/env';
+import {AssetLanguage} from '../../../types/enums/lang';
 import {DataIdType, MasterEntry, OfficialData, OfficialEntry} from './types';
 
 
@@ -8,15 +9,16 @@ export type OfficialAssetInitOptions<D, T> = {
   environment: Environment,
   fileName: string,
   transform: (entry: D) => T,
+  lang?: AssetLanguage,
 };
 
 export class OfficialAsset<K extends DataIdType, D extends OfficialEntry<K>, T extends MasterEntry<K>> {
   data: Array<T>;
   lookup: {[id in string]?: T};
 
-  protected constructor({environment, fileName, transform}: OfficialAssetInitOptions<D, T>) {
+  protected constructor({environment, fileName, transform, lang}: OfficialAssetInitOptions<D, T>) {
     const fileContent = fs.readFileSync(
-      environment.getMasterAssetPath(`${fileName}.json`),
+      environment.getLocalizedAssetPath(lang || 'jp', `${fileName}.json`),
       'utf-8',
     );
     const data = JSON.parse(fileContent) as OfficialData<K, D>;

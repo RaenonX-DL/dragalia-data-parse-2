@@ -1,11 +1,11 @@
 import {fixture} from '../../../../tests/fixtures';
-import {TextAsset} from '../text/main';
+import {SkillAsset} from '../skill/main';
 
 
-describe('Base official asset', () => {
-  it('reads data', async () => {
-    const textAsset = new TextAsset(fixture.environment);
+describe('Official asset', () => {
+  it('gets data', async () => {
+    const skillAsset = new SkillAsset(fixture.environment);
 
-    expect(textAsset.getDataOfId('ABNORMAL_STATUS_NAME_1')?.text).toBe('毒');
+    expect(skillAsset.getDataOfId(107505023)?.nameLabel).toBe('SKILL_NAME_107505023');
   });
 });
