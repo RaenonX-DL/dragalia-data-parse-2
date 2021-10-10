@@ -9,11 +9,16 @@ export type CommonSkillInfo = {
   internalId: number,
   name: AssetText,
   spMax: number,
-  spGradualPctMax: number,
-  sharable: boolean,
+  spGradualPctMax: number
+} & ({
+  sharable: false,
+  ssCost: 0,
+  ssSp: 0
+} | {
+  sharable: true,
   ssCost: number,
   ssSp: number
-};
+});
 
 export type SkillPossibility<T extends CommonSkillInfo> = {
   condition: Array<Condition>,
