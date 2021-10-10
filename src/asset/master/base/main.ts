@@ -14,8 +14,8 @@ export type OfficialAssetInitOptions<D, T> = {
 };
 
 export class OfficialAsset<K extends DataIdType, D extends OfficialEntry<K>, T extends MasterEntry<K>> {
-  data: Array<T>;
-  lookup: {[id in string]?: T};
+  _data: Array<T>;
+  _lookup: {[id in string]?: T};
 
   protected constructor({environment, fileName, transform, lang}: OfficialAssetInitOptions<D, T>) {
     const fileContent = fs.readFileSync(
@@ -24,11 +24,11 @@ export class OfficialAsset<K extends DataIdType, D extends OfficialEntry<K>, T e
     );
     const data = JSON.parse(fileContent) as OfficialData<K, D>;
 
-    this.data = data.dict.entriesValue.map((entry) => transform(entry));
-    this.lookup = Object.fromEntries(this.data.map((entry) => [entry.id, entry]));
+    this._data = data.dict.entriesValue.map((entry) => transform(entry));
+    this._lookup = Object.fromEntries(this._data.map((entry) => [entry.id, entry]));
   }
 
   getDataOfId(id: K): T | undefined {
-    return this.lookup[id.toString()];
+    return this._lookup[id.toString()];
   }
 }
