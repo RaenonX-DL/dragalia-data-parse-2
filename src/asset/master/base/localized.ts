@@ -1,23 +1,23 @@
 import {AssetLanguage} from '../../../types/enums/lang';
 import {MasterEntry} from './entry';
-import {OfficialAsset} from './main';
-import {DataIdType, OfficialEntry} from './type';
+import {MasterAsset} from './main';
+import {DataIdType, MasterOriginal} from './type';
 
 
 export type LocalizedAssetInitOptions<
   K extends DataIdType,
-  D extends OfficialEntry<K>,
+  D extends MasterOriginal<K>,
   T extends MasterEntry<K>,
-  A extends OfficialAsset<K, D, T>,
+  A extends MasterAsset<K, D, T>,
 > = {
   constructAsset: (lang: AssetLanguage) => A,
 };
 
 export class LocalizedAsset<
   K extends DataIdType,
-  D extends OfficialEntry<K>,
+  D extends MasterOriginal<K>,
   T extends MasterEntry<K>,
-  A extends OfficialAsset<K, D, T>,
+  A extends MasterAsset<K, D, T>,
 > {
   asset: {[lang in AssetLanguage]: A};
 

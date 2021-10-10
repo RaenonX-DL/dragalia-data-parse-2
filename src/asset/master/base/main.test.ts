@@ -2,7 +2,7 @@ import {fixture} from '../../../../tests/fixtures';
 import {SkillAsset} from '../skill/main';
 
 
-describe('Official asset', () => {
+describe('Master asset', () => {
   it('gets data', async () => {
     const skillAsset = new SkillAsset(fixture.environment);
 

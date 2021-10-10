@@ -1,10 +1,10 @@
 import {Environment} from '../../../process/env';
-import {OfficialAsset} from '../base/main';
+import {MasterAsset} from '../base/main';
 import {AbilityEntry} from './entry';
 import {AbilityOriginal} from './type';
 
 
-export class AbilityAsset extends OfficialAsset<number, AbilityOriginal, AbilityEntry> {
+export class AbilityAsset extends MasterAsset<number, AbilityOriginal, AbilityEntry> {
   constructor(environment: Environment) {
     super({
       environment,

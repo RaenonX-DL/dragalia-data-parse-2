@@ -1,6 +1,6 @@
-import {OfficialEntry} from '../base/type';
+import {MasterOriginal} from '../base/type';
 
 
-export type TextOriginal = OfficialEntry<string> & {
+export type TextOriginal = MasterOriginal<string> & {
   _Text: string,
 };

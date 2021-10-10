@@ -1,7 +1,7 @@
-import {OfficialEntry} from '../base/type';
+import {MasterOriginal} from '../base/type';
 
 
-export type UnitOriginal = OfficialEntry<number> & {
+export type UnitOriginal = MasterOriginal<number> & {
   _ElementalType: number,
   _Rarity: number,
   _CvInfo: string,

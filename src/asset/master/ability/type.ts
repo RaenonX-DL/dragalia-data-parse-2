@@ -1,7 +1,7 @@
-import {OfficialEntry} from '../base/type';
+import {MasterOriginal} from '../base/type';
 
 
-export type AbilityOriginal = OfficialEntry<number> & {
+export type AbilityOriginal = MasterOriginal<number> & {
   _AbilityType1: number,
   _VariousId1a: number,
   _VariousId1b: number,
