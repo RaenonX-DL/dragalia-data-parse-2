@@ -1,5 +1,6 @@
 import {Environment} from '../../../process/env';
 import {AssetLanguage} from '../../../types/enums/lang';
+import {AssetText} from '../../../types/resources/unit/text';
 import {LocalizedAsset} from '../base/localized';
 import {OfficialAsset} from '../base/main';
 import {transformTextEntry} from './transform';
@@ -23,5 +24,12 @@ export class TextAsset extends LocalizedAsset<string, TextOriginal, TextEntry, T
     super({
       constructAsset: (lang) => new TextAssetOfLocale(environment, lang),
     });
+  }
+
+  getAssetText(id: string): AssetText {
+    return this.getDataOfIdAllLang(
+      id,
+      (lang, entry) => entry?.text || `${id} (${lang.toUpperCase()})`,
+    );
   }
 }

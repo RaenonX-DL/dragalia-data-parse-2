@@ -32,4 +32,13 @@ export class LocalizedAsset<
   getDataOfId(lang: AssetLanguage, id: K): T | undefined {
     return this.asset[lang].getDataOfId(id);
   }
+
+  getDataOfIdAllLang<R>(id: K, getContent: (lang: string, entry: T | undefined) => R): {[lang in AssetLanguage]: R} {
+    return {
+      cht: getContent('cht', this.getDataOfId('cht', id)),
+      chs: getContent('chs', this.getDataOfId('chs', id)),
+      en: getContent('en', this.getDataOfId('en', id)),
+      jp: getContent('jp', this.getDataOfId('jp', id)),
+    };
+  }
 }
