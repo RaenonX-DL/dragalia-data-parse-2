@@ -6,7 +6,11 @@ import {exportBasicInfo} from './basic';
 
 describe('Export basic info', () => {
   it('exports basic info of a unit', async () => {
-    const info = exportBasicInfo(fixture.manager, UnitType.CHARACTER, 10750404);
+    const info = exportBasicInfo({
+      manager: fixture.manager,
+      unitType: UnitType.CHARACTER,
+      unitId: 10750404,
+    });
 
     expect(info.id).toBe(10750404);
     expect(info.type).toBe(UnitType.CHARACTER);
@@ -36,13 +40,21 @@ describe('Export basic info', () => {
 
   it('throws error if the unit type mismatches', async () => {
     expect(() => {
-      exportBasicInfo(fixture.manager, UnitType.DRAGON, 10750404);
+      exportBasicInfo({
+        manager: fixture.manager,
+        unitType: UnitType.DRAGON,
+        unitId: 10750404,
+      });
     }).toThrow(Error);
   });
 
   it('throws error if the unit does not exist', async () => {
     expect(() => {
-      exportBasicInfo(fixture.manager, UnitType.CHARACTER, 10750487);
+      exportBasicInfo({
+        manager: fixture.manager,
+        unitType: UnitType.CHARACTER,
+        unitId: 10750487,
+      });
     }).toThrow(Error);
   });
 });
