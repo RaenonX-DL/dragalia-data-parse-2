@@ -12,4 +12,8 @@ export class CharaEntry extends UnitEntry {
     this.ssId = entry._EditSkillId;
     this.ssCost = entry._EditSkillCost;
   }
+
+  get iconName(): string {
+    return `${this.baseId}_${this.variationId.toString().padStart(2, '0')}_r${this.rarity.toString().padStart(2, '0')}`;
+  }
 }

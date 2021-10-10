@@ -37,7 +37,7 @@ export class SkillLoader {
     const filePath = this.pathIndex[unitId];
 
     if (!filePath) {
-      throw new Error(`Unit #${unitId} does not have associated skill data file.`);
+      throw new Error(`Unit #${unitId} does not have associated skill data file`);
     }
 
     return yaml.load(fs.readFileSync(filePath, 'utf-8')) as SkillDataCollection;

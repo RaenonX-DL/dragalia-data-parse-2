@@ -1,3 +1,4 @@
+import {Element} from '../../enums/element';
 import {UnitType} from '../../enums/unitType';
 import {AssetText} from './text';
 
@@ -7,7 +8,7 @@ export type BasicUnitInfo = {
   name: AssetText,
   iconName: string,
   id: number,
-  element: number,
+  element: Element,
   rarity: number,
   cvEn: AssetText,
   cvJp: AssetText,
