@@ -1,7 +1,7 @@
 import {Environment} from '../../../process/env';
 import {OfficialAsset} from '../base/main';
-import {transformSkillEntry} from './transform';
-import {SkillEntry, SkillOriginal} from './type';
+import {SkillEntry} from './entry';
+import {SkillOriginal} from './type';
 
 
 export class SkillAsset extends OfficialAsset<number, SkillOriginal, SkillEntry> {
@@ -9,7 +9,7 @@ export class SkillAsset extends OfficialAsset<number, SkillOriginal, SkillEntry>
     super({
       environment,
       fileName: 'SkillData',
-      transform: transformSkillEntry,
+      transform: (entry) => new SkillEntry(entry),
     });
   }
 }
