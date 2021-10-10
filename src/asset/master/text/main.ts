@@ -3,8 +3,8 @@ import {AssetLanguage} from '../../../types/enums/lang';
 import {AssetText} from '../../../types/resources/unit/text';
 import {LocalizedAsset} from '../base/localized';
 import {OfficialAsset} from '../base/main';
-import {transformTextEntry} from './transform';
-import {TextEntry, TextOriginal} from './type';
+import {TextEntry} from './entry';
+import {TextOriginal} from './type';
 
 
 class TextAssetOfLocale extends OfficialAsset<string, TextOriginal, TextEntry> {
@@ -12,7 +12,7 @@ class TextAssetOfLocale extends OfficialAsset<string, TextOriginal, TextEntry> {
     super({
       environment,
       fileName: 'TextLabel',
-      transform: transformTextEntry,
+      transform: (entry) => new TextEntry(entry),
       lang,
     });
   }

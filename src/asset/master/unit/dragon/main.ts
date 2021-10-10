@@ -1,8 +1,8 @@
 import {Environment} from '../../../../process/env';
 import {UnitType} from '../../../../types/enums/unitType';
 import {UnitAsset} from '../asset';
-import {transformDragonEntry} from './transform';
-import {DragonEntry, DragonOriginal} from './type';
+import {DragonEntry} from './entry';
+import {DragonOriginal} from './type';
 
 
 export class DragonAsset extends UnitAsset<UnitType.DRAGON, DragonOriginal, DragonEntry> {
@@ -10,7 +10,7 @@ export class DragonAsset extends UnitAsset<UnitType.DRAGON, DragonOriginal, Drag
     super({
       environment,
       fileName: 'DragonData',
-      transform: transformDragonEntry,
+      transform: (entry) => new DragonEntry(entry),
     });
   }
 }

@@ -1,11 +1,10 @@
 import {Element} from '../../../types/enums/element';
-import {UnitType} from '../../../types/enums/unitType';
-import {UnitAssetEntry} from './type';
+import {MasterEntry} from '../base/entry';
+import {UnitOriginal} from './type';
 
 
-export class UnitEntry<T extends UnitType> implements UnitAssetEntry<T> {
+export class UnitEntry extends MasterEntry<number> {
   id: number;
-  unitType: T;
   element: Element;
   rarity: number;
   cvLabel: {
@@ -15,13 +14,17 @@ export class UnitEntry<T extends UnitType> implements UnitAssetEntry<T> {
   releaseEpoch: number;
   isPlayable: boolean;
 
-  constructor(entry: UnitAssetEntry<T>) {
-    this.id = entry.id;
-    this.unitType = entry.unitType;
-    this.element = entry.element;
-    this.rarity = entry.rarity;
-    this.cvLabel = entry.cvLabel;
-    this.releaseEpoch = entry.releaseEpoch;
-    this.isPlayable = entry.isPlayable;
+  constructor(entry: UnitOriginal) {
+    super(entry);
+
+    this.id = entry._Id;
+    this.element = Element[Element[entry._ElementalType] as keyof typeof Element];
+    this.rarity = entry._Rarity;
+    this.cvLabel = {
+      en: entry._CvInfoEn,
+      jp: entry._CvInfo,
+    };
+    this.releaseEpoch = Date.parse(entry._ReleaseStartDate) / 1000;
+    this.isPlayable = entry._IsPlayable;
   }
 }

@@ -1,8 +1,8 @@
 import {Environment} from '../../../../process/env';
 import {UnitType} from '../../../../types/enums/unitType';
 import {UnitAsset} from '../asset';
-import {transformCharaEntry} from './transform';
-import {CharaEntry, CharaOriginal} from './type';
+import {CharaEntry} from './entry';
+import {CharaOriginal} from './type';
 
 
 export class CharaAsset extends UnitAsset<UnitType.CHARACTER, CharaOriginal, CharaEntry> {
@@ -10,7 +10,7 @@ export class CharaAsset extends UnitAsset<UnitType.CHARACTER, CharaOriginal, Cha
     super({
       environment,
       fileName: 'CharaData',
-      transform: transformCharaEntry,
+      transform: (entry) => new CharaEntry(entry),
     });
   }
 }

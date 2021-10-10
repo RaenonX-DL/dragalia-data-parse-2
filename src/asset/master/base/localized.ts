@@ -1,6 +1,7 @@
 import {AssetLanguage} from '../../../types/enums/lang';
+import {MasterEntry} from './entry';
 import {OfficialAsset} from './main';
-import {DataIdType, MasterEntry, OfficialEntry} from './type';
+import {DataIdType, OfficialEntry} from './type';
 
 
 export type LocalizedAssetInitOptions<

@@ -9,7 +9,3 @@ export type OfficialData<K extends DataIdType, T extends OfficialEntry<K>> = {
 export type OfficialEntry<K extends DataIdType> = {
   _Id: K,
 };
-
-export type MasterEntry<K extends DataIdType> = {
-  id: K,
-};
