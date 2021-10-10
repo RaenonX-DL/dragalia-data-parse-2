@@ -3,15 +3,21 @@ import {UnitType} from '../../types/enums/unitType';
 import {BasicUnitInfo} from '../../types/resources/unit/unitInfo';
 
 
-export const exportBasicInfo = (manager: AssetManager, type: UnitType, unitId: number): BasicUnitInfo => {
-  const unitInfo = manager.master.unitData[type].getDataOfId(unitId);
+type BasicInfoExportOptions = {
+  manager: AssetManager,
+  unitType: UnitType,
+  unitId: number
+};
+
+export const exportBasicInfo = ({manager, unitType, unitId}: BasicInfoExportOptions): BasicUnitInfo => {
+  const unitInfo = manager.master.unitData[unitType].getDataOfId(unitId);
 
   if (!unitInfo) {
     throw new Error(`Unit info of #${unitId} not found`);
   }
 
   return {
-    type,
+    type: unitType,
     name: unitInfo.getName(manager),
     iconName: unitInfo.iconName,
     id: unitInfo.id,

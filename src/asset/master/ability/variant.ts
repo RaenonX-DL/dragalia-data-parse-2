@@ -26,4 +26,8 @@ export class AbilityVariant implements AbilityVariantProps {
   get otherAbilityId(): number | undefined {
     return this.type === AbilityVariantType.OTHER_ABILITY ? this.id[0] : undefined;
   }
+
+  get triggeredActionConditionId(): number | undefined {
+    return this.type === AbilityVariantType.CHANGE_STATE ? this.id[0] : undefined;
+  }
 }

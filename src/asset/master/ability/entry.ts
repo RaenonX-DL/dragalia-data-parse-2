@@ -36,4 +36,10 @@ export class AbilityEntry extends MasterEntry<number> {
       .map((variant) => variant.otherAbilityId)
       .filter((abilityId) => abilityId !== undefined) as Array<number>;
   }
+
+  get actionConditionIds(): Array<number> {
+    return this.variants
+      .map((variant) => variant.triggeredActionConditionId)
+      .filter((abilityId) => abilityId !== undefined) as Array<number>;
+  }
 }
