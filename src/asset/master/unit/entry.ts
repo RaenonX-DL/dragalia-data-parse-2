@@ -3,7 +3,7 @@ import {MasterEntry} from '../base/entry';
 import {UnitOriginal} from './type';
 
 
-export class UnitEntry extends MasterEntry<number> {
+export abstract class UnitEntry extends MasterEntry<number> {
   id: number;
   element: Element;
   rarity: number;
@@ -14,7 +14,7 @@ export class UnitEntry extends MasterEntry<number> {
   releaseEpoch: number;
   isPlayable: boolean;
 
-  constructor(entry: UnitOriginal) {
+  protected constructor(entry: UnitOriginal) {
     super(entry);
 
     this.id = entry._Id;
