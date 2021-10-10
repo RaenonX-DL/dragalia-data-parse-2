@@ -18,7 +18,7 @@ export class UnitEntry extends MasterEntry<number> {
     super(entry);
 
     this.id = entry._Id;
-    this.element = Element[Element[entry._ElementalType] as keyof typeof Element];
+    this.element = entry._ElementalType;
     this.rarity = entry._Rarity;
     this.cvLabel = {
       en: entry._CvInfoEn,
