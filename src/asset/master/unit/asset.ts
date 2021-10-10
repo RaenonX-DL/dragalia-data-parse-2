@@ -1,9 +1,15 @@
+import {UnitType} from '../../../types/enums/unitType';
 import {OfficialAsset, OfficialAssetInitOptions} from '../base/main';
-import {UnitEntry, UnitOriginal} from './type';
+import {UnitEntry} from './entry';
+import {UnitOriginal} from './type';
 
 
-export class UnitAsset<D extends UnitOriginal, T extends UnitEntry> extends OfficialAsset<number, D, T> {
-  constructor(options: OfficialAssetInitOptions<D, T>) {
+export class UnitAsset<
+  T extends UnitType,
+  D extends UnitOriginal,
+  E extends UnitEntry<T>
+> extends OfficialAsset<number, D, E> {
+  constructor(options: OfficialAssetInitOptions<D, E>) {
     super(options);
   }
 }

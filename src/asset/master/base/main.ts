@@ -2,7 +2,7 @@ import * as fs from 'fs';
 
 import {Environment} from '../../../process/env';
 import {AssetLanguage} from '../../../types/enums/lang';
-import {DataIdType, MasterEntry, OfficialData, OfficialEntry} from './types';
+import {DataIdType, MasterEntry, OfficialData, OfficialEntry} from './type';
 
 
 export type OfficialAssetInitOptions<D, T> = {

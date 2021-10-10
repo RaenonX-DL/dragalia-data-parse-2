@@ -1,5 +1,6 @@
 import {Element} from '../../../types/enums/element';
-import {MasterEntry, OfficialEntry} from '../base/types';
+import {UnitType} from '../../../types/enums/unitType';
+import {MasterEntry, OfficialEntry} from '../base/type';
 
 
 export type UnitOriginal = OfficialEntry<number> & {
@@ -11,7 +12,8 @@ export type UnitOriginal = OfficialEntry<number> & {
   _IsPlayable: boolean,
 };
 
-export type UnitEntry = MasterEntry<number> & {
+export type UnitAssetEntry<T extends UnitType> = MasterEntry<number> & {
+  unitType: T,
   element: Element,
   rarity: number,
   cvLabel: {

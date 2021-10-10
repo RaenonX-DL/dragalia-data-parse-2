@@ -1,6 +1,7 @@
-import {UnitEntry, UnitOriginal} from '../type';
+import {UnitType} from '../../../../types/enums/unitType';
+import {UnitAssetEntry, UnitOriginal} from '../type';
 
 
 export type DragonOriginal = UnitOriginal;
 
-export type DragonEntry = UnitEntry;
+export type DragonEntry = UnitAssetEntry<UnitType.DRAGON>;

@@ -1,4 +1,4 @@
-import {MasterEntry, OfficialEntry} from '../types';
+import {MasterEntry, OfficialEntry} from '../base/type';
 
 
 export type SkillOriginal = OfficialEntry<number> & {
@@ -7,7 +7,7 @@ export type SkillOriginal = OfficialEntry<number> & {
   _SpLv4Edit: number,
 };
 
-export type SkillEntry = MasterEntry<number> & {
+export type SkillAssetEntry = MasterEntry<number> & {
   nameLabel: string,
   sp: number,
   ssSp: number,
