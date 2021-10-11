@@ -1,6 +1,6 @@
 import {CharaEntry} from '../../asset/master/unit/chara/entry';
 import {CommonSkillInfo} from '../../types/resources/unit/skill/common';
-import {SkillDataExportOptions} from './data';
+import {SkillDataExportOptions} from './type';
 
 
 export const exportToCommonInfo = (
