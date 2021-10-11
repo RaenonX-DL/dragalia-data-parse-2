@@ -1,6 +1,5 @@
 import {fixture} from '../../../tests/fixtures';
 import {UnitType} from '../../types/enums/unitType';
-import {exportBasicInfo} from '../unitInfo/basic';
 import {exportToCommonInfo} from './commonInfo';
 
 
@@ -9,12 +8,8 @@ describe('Skill common info', () => {
     const info = exportToCommonInfo({
       manager: fixture.manager,
       unitType: UnitType.CHARACTER,
+      unitId: 10550203,
       data: (await fixture.manager.custom.skill.getCollectionOfUnit(10550203))[1],
-      unitBasic: exportBasicInfo({
-        manager: fixture.manager,
-        unitType: UnitType.CHARACTER,
-        unitId: 10550203,
-      }),
     });
 
     expect(info.name).toStrictEqual({
@@ -40,12 +35,8 @@ describe('Skill common info', () => {
     const info = exportToCommonInfo({
       manager: fixture.manager,
       unitType: UnitType.CHARACTER,
+      unitId: 10550203,
       data: (await fixture.manager.custom.skill.getCollectionOfUnit(10550203))[0],
-      unitBasic: exportBasicInfo({
-        manager: fixture.manager,
-        unitType: UnitType.CHARACTER,
-        unitId: 10550203,
-      }),
     });
 
     expect(info.name).toStrictEqual({
@@ -78,12 +69,8 @@ describe('Skill common info', () => {
     const info = exportToCommonInfo({
       manager: fixture.manager,
       unitType: UnitType.CHARACTER,
+      unitId: 10150403,
       data: (await fixture.manager.custom.skill.getCollectionOfUnit(10150403))[1],
-      unitBasic: exportBasicInfo({
-        manager: fixture.manager,
-        unitType: UnitType.CHARACTER,
-        unitId: 10150403,
-      }),
     });
 
     expect(info.name).toStrictEqual({
@@ -109,12 +96,8 @@ describe('Skill common info', () => {
     const info = exportToCommonInfo({
       manager: fixture.manager,
       unitType: UnitType.DRAGON,
+      unitId: 20050107,
       data: (await fixture.manager.custom.skill.getCollectionOfUnit(20050107))[0],
-      unitBasic: exportBasicInfo({
-        manager: fixture.manager,
-        unitType: UnitType.DRAGON,
-        unitId: 20050107,
-      }),
     });
 
     expect(info.name).toStrictEqual({

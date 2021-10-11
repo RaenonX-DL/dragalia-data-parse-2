@@ -22,7 +22,7 @@ export type AfflictionUnit = {
   stackable: boolean
 };
 
-export type AttackingSkillInfo = CommonSkillInfo & {
+export type AttackingSkillInfoExclusive = {
   modsMax: Array<number>,
   crisisMax: Array<number>,
   hitsMax: number,
@@ -34,3 +34,5 @@ export type AttackingSkillInfo = CommonSkillInfo & {
   hitTimingSecMax: Array<number>,
   cancelActionsMax: Array<CancelUnit>,
 };
+
+export type AttackingSkillInfo = CommonSkillInfo & AttackingSkillInfoExclusive;

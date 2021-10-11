@@ -1,26 +1,16 @@
-import {SkillData} from '../../asset/custom/skill/type';
-import {AssetManager} from '../../asset/manager/main';
 import {CharaEntry} from '../../asset/master/unit/chara/entry';
-import {UnitType} from '../../types/enums/unitType';
 import {CommonSkillInfo} from '../../types/resources/unit/skill/common';
-import {BasicUnitInfo} from '../../types/resources/unit/unitInfo';
+import {SkillDataExportOptions} from './data';
 
-
-type CommonSkillInfoExportOptions = {
-  manager: AssetManager,
-  unitType: UnitType,
-  data: SkillData,
-  unitBasic: BasicUnitInfo,
-};
 
 export const exportToCommonInfo = (
-  {manager, unitType, data, unitBasic}: CommonSkillInfoExportOptions,
+  {manager, unitType, unitId, data}: SkillDataExportOptions,
 ): CommonSkillInfo => {
-  const unitData = manager.master.unitData[unitType].getDataOfId(unitBasic.id);
+  const unitData = manager.master.unitData[unitType].getDataOfId(unitId);
   const skillData = manager.master.skill.getDataOfId(data.skillDataId);
 
   if (!unitData) {
-    throw new Error(`Unit data of ID ${unitBasic.id} not found`);
+    throw new Error(`Unit data of ID ${unitId} not found`);
   }
 
   if (!skillData) {
