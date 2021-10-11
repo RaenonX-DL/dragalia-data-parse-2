@@ -1,0 +1,13 @@
+---
+engines:
+  duplication:
+    exclude_paths:
+      # Test files
+      - "**.test.ts"
+      # Test data
+      - "test/data/**"
+exclude_paths:
+  # Typings
+  - "./src/types/resources/**"
+  # Data files
+  - "./data/**"
