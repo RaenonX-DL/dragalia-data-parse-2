@@ -35,6 +35,3 @@ export enum Status {
   BK_STATE = 201,
 }
 
-export const isAbnormalStatus = (status: Status): boolean => {
-  return status.valueOf() >= 1 && status.valueOf() <= 15;
-};

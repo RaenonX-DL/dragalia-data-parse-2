@@ -1,6 +1,7 @@
 import {Status} from '../../../types/enums/status';
-import {Target, TargetSimple, TargetToSimple} from '../../../types/enums/target';
+import {Target, TargetSimple} from '../../../types/enums/target';
 import {CurveObject, parseCurveObject} from '../../../utils/curve';
+import {TargetToSimple} from '../../../utils/enums/target';
 import {MasterEntry} from '../base/entry';
 import {HitAttrOriginal} from './type';
 
