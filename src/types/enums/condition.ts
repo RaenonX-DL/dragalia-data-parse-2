@@ -315,3 +315,5 @@ export type Condition =
   'PROB_75';
 // endregion
 // endregion
+
+export type ConditionComposite = Array<Condition>;

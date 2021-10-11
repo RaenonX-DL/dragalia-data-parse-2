@@ -1,4 +1,4 @@
-import {Condition} from '../../../enums/condition';
+import {ConditionComposite} from '../../../enums/condition';
 import {OfficialSkillInfo} from '../official';
 import {AssetText, CustomAssetText} from '../text';
 import {BasicUnitInfo} from '../unitInfo';
@@ -21,7 +21,7 @@ export type CommonSkillInfo = {
 });
 
 export type SkillPossibility<T extends CommonSkillInfo> = {
-  condition: Array<Condition>,
+  condition: ConditionComposite,
   unit: BasicUnitInfo,
   skill: T
 };

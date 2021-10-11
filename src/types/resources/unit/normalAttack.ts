@@ -1,4 +1,4 @@
-import {Condition} from '../../enums/condition';
+import {ConditionComposite} from '../../enums/condition';
 import {CancelUnit} from './cancel';
 import {AssetText} from './text';
 
@@ -14,7 +14,7 @@ export type AutoCombo = {
 };
 
 export type AutoChainBranch = {
-  conditions: Array<Condition>,
+  conditions: ConditionComposite,
   combos: Array<AutoCombo>,
   hasUtp: boolean,
   hasCrisis: boolean,
