@@ -23,11 +23,11 @@ export class AbilityVariant implements AbilityVariantProps {
     this.upValue = upValue;
   }
 
-  get otherAbilityId(): number | undefined {
-    return this.type === AbilityVariantType.OTHER_ABILITY ? this.id[0] : undefined;
+  get otherAbilityId(): number | null {
+    return this.type === AbilityVariantType.OTHER_ABILITY ? this.id[0] : null;
   }
 
-  get triggeredActionConditionId(): number | undefined {
-    return this.type === AbilityVariantType.CHANGE_STATE ? this.id[0] : undefined;
+  get triggeredActionConditionId(): number | null {
+    return this.type === AbilityVariantType.CHANGE_STATE ? this.id[0] : null;
   }
 }

@@ -1,3 +1,4 @@
+import {isNonNil} from '../../../utils/array';
 import {MasterEntry} from '../base/entry';
 import {AbilityOriginal} from './type';
 import {AbilityVariant} from './variant';
@@ -32,14 +33,10 @@ export class AbilityEntry extends MasterEntry<number> {
   }
 
   get childAbilityIds(): Array<number> {
-    return this.variants
-      .map((variant) => variant.otherAbilityId)
-      .filter((abilityId) => abilityId !== undefined) as Array<number>;
+    return this.variants.map((variant) => variant.otherAbilityId).filter(isNonNil);
   }
 
   get actionConditionIds(): Array<number> {
-    return this.variants
-      .map((variant) => variant.triggeredActionConditionId)
-      .filter((abilityId) => abilityId !== undefined) as Array<number>;
+    return this.variants.map((variant) => variant.triggeredActionConditionId).filter(isNonNil);
   }
 }
