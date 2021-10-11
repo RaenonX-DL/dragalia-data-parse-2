@@ -6,16 +6,8 @@ import {SkillDataExportOptions} from './data';
 export const exportToCommonInfo = (
   {manager, unitType, unitId, data}: SkillDataExportOptions,
 ): CommonSkillInfo => {
-  const unitData = manager.master.unitData[unitType].getDataOfId(unitId);
-  const skillData = manager.master.skill.getDataOfId(data.skillDataId);
-
-  if (!unitData) {
-    throw new Error(`Unit data of ID ${unitId} not found`);
-  }
-
-  if (!skillData) {
-    throw new Error(`Skill data of ID ${data.skillDataId} not found`);
-  }
+  const unitData = manager.master.unitData[unitType].getDataOfIdThrow(unitId);
+  const skillData = manager.master.skill.getDataOfIdThrow(data.skillDataId);
 
   const name = manager.master.text.getAssetText(skillData.nameLabel);
 

@@ -15,7 +15,7 @@ export class AbilityAsset extends MasterAsset<number, AbilityOriginal, AbilityEn
 
   getAllAbilityOf(abilityId: number): Array<AbilityEntry> {
     const abilityData = [];
-    const current = [this.getDataOfId(abilityId)];
+    const current = [this.getDataOfIdThrow(abilityId)];
     const traversedIds = new Set<number>([abilityId]);
 
     while (current.length) {
@@ -29,7 +29,7 @@ export class AbilityAsset extends MasterAsset<number, AbilityOriginal, AbilityEn
 
       const childAbilityIds = data.childAbilityIds;
 
-      current.push(...childAbilityIds.map((abilityId) => this.getDataOfId(abilityId)));
+      current.push(...childAbilityIds.map((abilityId) => this.getDataOfIdThrow(abilityId)));
       childAbilityIds.forEach((abilityId) => traversedIds.add(abilityId));
     }
 

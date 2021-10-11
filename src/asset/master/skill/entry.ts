@@ -27,7 +27,7 @@ export class SkillEntry extends MasterEntry<number> {
     return manager.master.ability.getAllAbilityOf(this.abilityId)
       .map((abilityData) => abilityData.actionConditionIds)
       .flat(1)
-      .map((actionConditionId) => manager.master.actionCond.getDataOfId(actionConditionId)?.regenSpPct)
+      .map((actionConditionId) => manager.master.actionCond.getDataOfIdThrow(actionConditionId)?.regenSpPct)
       .reduce((a, b) => (a || 0) + (b || 0), 0) || 0;
   }
 }

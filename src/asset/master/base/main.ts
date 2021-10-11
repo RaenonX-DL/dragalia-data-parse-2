@@ -31,4 +31,14 @@ export class MasterAsset<K extends DataIdType, D extends MasterOriginal<K>, T ex
   getDataOfId(id: K): T | undefined {
     return this._lookup[id.toString()];
   }
+
+  getDataOfIdThrow(id: K): T {
+    const ret = this.getDataOfId(id);
+
+    if (!ret) {
+      throw new Error(`${id} not found`);
+    }
+
+    return ret;
+  }
 }
