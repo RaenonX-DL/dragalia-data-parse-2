@@ -1,12 +1,12 @@
 import {fixture} from '../../../tests/fixtures';
 import {Element} from '../../types/enums/element';
 import {UnitType} from '../../types/enums/unitType';
-import {exportBasicInfo} from './basic';
+import {exportBasicUnitInfo} from './basic';
 
 
 describe('Export basic info', () => {
   it('exports basic info of a unit', async () => {
-    const info = exportBasicInfo({
+    const info = exportBasicUnitInfo({
       manager: fixture.manager,
       unitType: UnitType.CHARACTER,
       unitId: 10750404,
@@ -40,7 +40,7 @@ describe('Export basic info', () => {
 
   it('throws error if the unit type mismatches', async () => {
     expect(() => {
-      exportBasicInfo({
+      exportBasicUnitInfo({
         manager: fixture.manager,
         unitType: UnitType.DRAGON,
         unitId: 10750404,
@@ -50,7 +50,7 @@ describe('Export basic info', () => {
 
   it('throws error if the unit does not exist', async () => {
     expect(() => {
-      exportBasicInfo({
+      exportBasicUnitInfo({
         manager: fixture.manager,
         unitType: UnitType.CHARACTER,
         unitId: 10750487,

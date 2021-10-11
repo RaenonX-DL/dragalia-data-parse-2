@@ -9,7 +9,7 @@ type BasicInfoExportOptions = {
   unitId: number
 };
 
-export const exportBasicInfo = ({manager, unitType, unitId}: BasicInfoExportOptions): BasicUnitInfo => {
+export const exportBasicUnitInfo = ({manager, unitType, unitId}: BasicInfoExportOptions): BasicUnitInfo => {
   const unitInfo = manager.master.unitData[unitType].getDataOfId(unitId);
 
   if (!unitInfo) {
