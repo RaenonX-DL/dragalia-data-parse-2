@@ -16,23 +16,30 @@ export type BuffFieldBoost = {
 
 export type AfflictionUnit = {
   status: Status,
-  actionTime: number,
   probabilityPct: number,
   duration: number,
   stackable: boolean
 };
 
+export type ModsUnit = {
+  damage: number,
+  crisis: number,
+};
+
+export type TimingData = {
+  earliest: number,
+};
+
 export type AttackingSkillInfoExclusive = {
-  modsMax: Array<number>,
-  crisisMax: Array<number>,
-  hitsMax: number,
+  mods: Array<ModsUnit>,
   afflictions: Array<AfflictionUnit>,
-  buffCountBoost: Array<BuffCountBoost>,
-  buffZoneBoost: BuffFieldBoost,
-  dispelMax: boolean,
-  dispelTimingMax: Array<number>,
-  hitTimingSecMax: Array<number>,
-  cancelActionsMax: Array<CancelUnit>,
+  boost: {
+    count: BuffCountBoost,
+    field: BuffFieldBoost,
+  }
+  dispel: boolean,
+  timing: TimingData,
+  cancelActions: Array<CancelUnit>,
 };
 
 export type AttackingSkillInfo = CommonSkillInfo & AttackingSkillInfoExclusive;
