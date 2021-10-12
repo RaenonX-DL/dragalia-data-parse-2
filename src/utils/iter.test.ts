@@ -37,4 +37,13 @@ describe('Iter tools', () => {
       [3, 5, 6],
     ]);
   });
+
+  it('returns correct cartesian products with empty element', async () => {
+    const prod = product([1, 2], []);
+
+    expect(prod).toStrictEqual([
+      [1],
+      [2],
+    ]);
+  });
 });

@@ -6,12 +6,14 @@ export const combinations = <T, >(array: Array<T>): Array<Array<T>> => {
 };
 
 export const product = <T, >(...arr: Array<Array<T>>): Array<Array<T>> => (
-  arr.reduce<Array<Array<T>>>(
-    (a, b) => (
-      a
-        .map((x) => b.map((y) => x.concat(y)))
-        .reduce((c, d) => c.concat(d), [])
-    ),
-    [[]],
-  )
+  arr
+    .filter((item) => item.length > 0)
+    .reduce<Array<Array<T>>>(
+      (a, b) => (
+        a
+          .map((x) => b.map((y) => x.concat(y)))
+          .reduce((c, d) => c.concat(d), [])
+      ),
+      [[]],
+    )
 );
