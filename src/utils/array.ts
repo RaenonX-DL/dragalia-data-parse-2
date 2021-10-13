@@ -6,7 +6,11 @@ type IsNonNilOptions = {
   errorMessage: string,
 };
 
-export const isNonNil = <T>(options?: IsNonNilOptions) => (value: T | null | undefined | void): value is T => {
+export const isNonNil = <T>(
+  options?: IsNonNilOptions,
+) => (
+  value: null | undefined | void | T,
+): value is T => {
   const isNil = value == null;
 
   if (isNil && options?.throwIfNil) {
