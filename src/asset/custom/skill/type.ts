@@ -7,6 +7,9 @@ export type SkillData = {
   conditions: Array<ConditionComposite>,
   skillDataId: number,
   hitLabels: Array<string>,
+  params: {
+    buffBoostInEffect?: number
+  }
 };
 
 export type SkillDataCollection = Array<SkillData>;

@@ -63,6 +63,17 @@
           "type": "string",
           "description": "A single hit label used of the skill data."
         }
+      },
+      "params": {
+        "type": "object",
+        "description": "Various preset parameters of a skill.",
+        "properties": {
+          "buffBoostInEffect": {
+            "type": "number",
+            "description": "In-effect buff boost rate."
+          }
+        },
+        "additionalProperties": false
       }
     },
     "required": [
