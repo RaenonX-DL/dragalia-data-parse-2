@@ -12,5 +12,7 @@ export type HitAttrOriginal = MasterOriginal<string> & {
   _KillerState3: Status,
   _KillerStateDamageRate: number,
   _KillerStateDamageRateCurveDependsOnHitCount: string,
+  _DamageUpRateByBuffCount: number,
+  _DamageUpDataByBuffCount: number,
   _ActionCondition1: number,
 };

@@ -24,6 +24,10 @@ export class HitAttrEntry extends MasterEntry<string> {
     state: {
       od: number,
       bk: number,
+    },
+    buff: {
+      rate: number,
+      dataId: number
     }
   };
 
@@ -45,6 +49,10 @@ export class HitAttrEntry extends MasterEntry<string> {
       state: {
         od: entry._ToOdDmgRate,
         bk: entry._ToBreakDmgRate,
+      },
+      buff: {
+        rate: entry._DamageUpRateByBuffCount,
+        dataId: entry._DamageUpDataByBuffCount,
       },
     };
   }
