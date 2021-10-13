@@ -1,7 +1,9 @@
 import {Status} from '../../../types/enums/status';
 import {Target, TargetSimple} from '../../../types/enums/target';
+import {BuffCountBoost} from '../../../types/resources/unit/skill/atk';
 import {CurveObject, parseCurveObject} from '../../../utils/curve';
 import {TargetToSimple} from '../../../utils/enums/target';
+import {AssetManager} from '../../manager/main';
 import {MasterEntry} from '../base/entry';
 import {HitAttrOriginal} from './type';
 
@@ -63,5 +65,23 @@ export class HitAttrEntry extends MasterEntry<string> {
 
   get boostInOd(): boolean {
     return this.mod > 0 && this.boost.state.od !== 1;
+  }
+
+  toBuffCountBoost(manager: AssetManager, inEffect: number): BuffCountBoost {
+    if (this.boost.buff.dataId) {
+      const data = manager.master.buffCount.getDataOfIdThrow(this.boost.buff.dataId);
+
+      return {
+        each: data.base,
+        inEffect,
+        limit: data.limit,
+      };
+    }
+
+    return {
+      each: this.boost.buff.rate,
+      inEffect,
+      limit: 0,
+    };
   }
 }
