@@ -4,6 +4,7 @@ import {MasterOriginal} from '../base/type';
 export type ActionCondOriginal = MasterOriginal<number> & {
   _Type: number,
   _Rate: number,
+  _TargetElemental: number,
   _EfficacyType: number,
   _OverwriteGroupId: number,
   _OverwriteIdenticalOwner: number,

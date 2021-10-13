@@ -1,4 +1,5 @@
 import {EfficacyType} from '../../../types/enums/efficacy';
+import {ElementFlag} from '../../../types/enums/element';
 import {Status} from '../../../types/enums/status';
 import {MasterEntry} from '../base/entry';
 import {ActionCondOriginal} from './type';
@@ -7,6 +8,7 @@ import {ActionCondOriginal} from './type';
 export class ActionCondEntry extends MasterEntry<number> {
   infliction: Status;
   efficacy: EfficacyType;
+  target: ElementFlag;
   probabilityPct: number;
   duration: {
     sec: number,
@@ -20,6 +22,7 @@ export class ActionCondEntry extends MasterEntry<number> {
 
     this.infliction = entry._Type;
     this.efficacy = entry._EfficacyType;
+    this.target = entry._TargetElemental;
     this.probabilityPct = entry._Rate;
     this.duration = {
       sec: entry._DurationSec,
