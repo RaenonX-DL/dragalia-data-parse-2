@@ -1,5 +1,7 @@
+import {SkillCancelAction} from '../../../utils/enums/cancel';
+
+
 export type CancelUnit = {
-  action: number,
+  action: SkillCancelAction,
   time: number,
-  conditions: number[],
 };
