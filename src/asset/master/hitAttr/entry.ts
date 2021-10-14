@@ -30,7 +30,8 @@ export class HitAttrEntry extends MasterEntry<string> {
     buff: {
       rate: number,
       dataId: number
-    }
+    },
+    enmity: number,
   };
 
   constructor(entry: HitAttrOriginal) {
@@ -56,6 +57,7 @@ export class HitAttrEntry extends MasterEntry<string> {
         rate: entry._DamageUpRateByBuffCount,
         dataId: entry._DamageUpDataByBuffCount,
       },
+      enmity: entry._CrisisLimitRate,
     };
   }
 

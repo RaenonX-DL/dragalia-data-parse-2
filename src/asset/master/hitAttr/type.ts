@@ -7,6 +7,7 @@ export type HitAttrOriginal = MasterOriginal<string> & {
   _DamageAdjustment: number,
   _ToOdDmgRate: number,
   _ToBreakDmgRate: number,
+  _CrisisLimitRate: number,
   _KillerState1: Status,
   _KillerState2: Status,
   _KillerState3: Status,
