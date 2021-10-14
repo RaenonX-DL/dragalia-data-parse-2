@@ -23,7 +23,12 @@ export type AfflictionUnit = {
 
 export type ModsUnit = {
   damage: number,
-  crisis: number,
+  boost: {
+    buff: {
+      count: BuffCountBoost,
+    },
+    enmity: number,
+  },
 };
 
 export type TimingData = {
@@ -34,8 +39,9 @@ export type AttackingSkillInfoExclusive = {
   mods: Array<ModsUnit>,
   afflictions: Array<AfflictionUnit>,
   boost: {
-    count: BuffCountBoost,
-    field: BuffFieldBoost,
+    buff: {
+      field: BuffFieldBoost,
+    }
   }
   dispel: boolean,
   timing: TimingData,
