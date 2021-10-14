@@ -8,6 +8,7 @@ export class SkillEntry extends MasterEntry<number> {
   sp: number;
   ssSp: number;
   abilityId: number;
+  actionIds: Array<number>;
 
   constructor(entry: SkillOriginal) {
     super(entry);
@@ -16,6 +17,8 @@ export class SkillEntry extends MasterEntry<number> {
     this.sp = entry._SpLv4;
     this.ssSp = entry._SpLv4Edit;
     this.abilityId = entry._Ability4 || entry._Ability3;
+    this.actionIds = [entry._ActionId1, entry._ActionId2, entry._ActionId3, entry._ActionId4]
+      .filter((actionId) => actionId > 0);
   }
 
   getSpGradualFillPct(manager: AssetManager): number {
