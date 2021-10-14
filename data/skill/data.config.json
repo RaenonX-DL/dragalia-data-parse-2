@@ -66,11 +66,33 @@
       },
       "params": {
         "type": "object",
-        "description": "Various preset parameters of a skill.",
+        "description": "Various parameters related to a skill possibility.",
         "properties": {
-          "buffBoostInEffect": {
-            "type": "number",
-            "description": "In-effect buff boost rate."
+          "buff": {
+            "type": "object",
+            "description": "Various buff boost parameters related to a skill possibility.",
+            "properties": {
+              "inEffect": {
+                "type": "number",
+                "description": "In-effect buff boost rate."
+              },
+              "field": {
+                "type": "object",
+                "description": "Parameters related to rate of boost by buff field count.",
+                "properties": {
+                  "self": {
+                    "type": "number",
+                    "description": "Rate of boost when standing inside a self-built buff field."
+                  },
+                  "ally": {
+                    "type": "number",
+                    "description": "Rate of boost when standing inside an ally-built buff field."
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
           }
         },
         "additionalProperties": false
