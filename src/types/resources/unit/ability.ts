@@ -3,7 +3,7 @@ import {OfficialAbilityInfo} from './official';
 
 
 export type AbilityInfo = {
-  passive: Array<OfficialAbilityInfo>,
+  passive: OfficialAbilityInfo[],
   coAbility?: {
     global: OfficialAbilityInfo,
     chained: OfficialAbilityInfo,

@@ -4,23 +4,23 @@ import {AssetText} from './text';
 
 
 export type AutoCombo = {
-  cancelActions: Array<CancelUnit>,
+  cancelActions: CancelUnit[],
   cancelToNextSec: number | null,
-  mods: Array<number>,
-  odRate: Array<number>,
-  crisisMod: Array<number>,
+  mods: number[],
+  odRate: number[],
+  crisisMod: number[],
   sp: number,
   utp: number,
 };
 
 export type AutoChainBranch = {
   conditions: ConditionComposite,
-  combos: Array<AutoCombo>,
+  combos: AutoCombo[],
   hasUtp: boolean,
   hasCrisis: boolean,
 };
 
 export type AutoChain = {
   chainName: AssetText,
-  chain: Array<AutoChainBranch>,
+  chain: AutoChainBranch[],
 };

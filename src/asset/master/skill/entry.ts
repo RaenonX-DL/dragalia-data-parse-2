@@ -8,7 +8,7 @@ export class SkillEntry extends MasterEntry<number> {
   sp: number;
   ssSp: number;
   abilityId: number;
-  actionIds: Array<number>;
+  actionIds: number[];
 
   constructor(entry: SkillOriginal) {
     super(entry);

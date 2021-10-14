@@ -15,7 +15,7 @@ export class HitAttrEntry extends MasterEntry<string> {
   actionCondId: number;
 
   killer: {
-    status: Array<Status>,
+    status: Status[],
     rate: {
       fixed: number,
       combo: CurveObject | null,

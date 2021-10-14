@@ -14,11 +14,11 @@ export type SkillDataParams = {
 };
 
 export type SkillData = {
-  identifier: Array<CustomAssetText>,
-  conditions: Array<ConditionComposite>,
+  identifier: CustomAssetText[],
+  conditions: ConditionComposite[],
   skillDataId: number,
-  hitLabels: Array<string>,
+  hitLabels: string[],
   params: DeepPartial<SkillDataParams>
 };
 
-export type SkillDataCollection = Array<SkillData>;
+export type SkillDataCollection = SkillData[];

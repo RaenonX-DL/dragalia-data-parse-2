@@ -5,7 +5,7 @@ import {BasicUnitInfo} from '../unitInfo';
 
 
 export type CommonSkillInfo = {
-  identifiers: Array<CustomAssetText>,
+  identifiers: CustomAssetText[],
   internalId: number,
   name: AssetText,
   spMax: number,
@@ -26,9 +26,9 @@ export type SkillPossibility<T extends CommonSkillInfo> = {
   skill: T
 };
 
-export type SkillInfoCollection<T extends CommonSkillInfo> = Array<SkillPossibility<T>>;
+export type SkillInfoCollection<T extends CommonSkillInfo> = SkillPossibility<T>[];
 
 export type SkillInfoBundle<T extends CommonSkillInfo> = {
-  official: Array<OfficialSkillInfo>,
+  official: OfficialSkillInfo[],
   atkSkills: SkillInfoCollection<T>,
 };

@@ -22,7 +22,7 @@ export class Environment {
     return path.join(this.config.data.asset, ...this._resourceRootParts, 'actions');
   }
 
-  get _resourceRootParts(): Array<string> {
+  get _resourceRootParts(): string[] {
     return [
       'assets',
       '_gluonresources',
@@ -30,7 +30,7 @@ export class Environment {
     ];
   }
 
-  _getMasterAssetPathParts(fileNameWithExt: string): Array<string> {
+  _getMasterAssetPathParts(fileNameWithExt: string): string[] {
     return [
       ...this._resourceRootParts,
       'master',

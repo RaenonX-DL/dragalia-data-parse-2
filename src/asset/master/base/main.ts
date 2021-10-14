@@ -14,7 +14,7 @@ export type MasterAssetInitOptions<D, T> = {
 };
 
 export class MasterAsset<K extends DataIdType, D extends MasterOriginal<K>, T extends MasterEntry<K>> {
-  _data: Array<T>;
+  _data: T[];
   _lookup: {[id in string]?: T};
 
   protected constructor({environment, fileName, transform, lang}: MasterAssetInitOptions<D, T>) {

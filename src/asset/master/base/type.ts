@@ -2,7 +2,7 @@ export type DataIdType = string | number;
 
 export type MasterData<K extends DataIdType, T extends MasterOriginal<K>> = {
   dict: {
-    entriesValue: Array<T>,
+    entriesValue: T[],
   }
 };
 

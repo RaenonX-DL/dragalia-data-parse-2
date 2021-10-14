@@ -5,7 +5,7 @@ export type StoryBase<T extends StoryConversationType> = {
 };
 
 export type StoryTalk = StoryBase<'conversation'> & {
-  audioPaths: Array<string>,
+  audioPaths: string[],
   content: string,
   isSys: boolean,
   speakerIcon: string | null,
@@ -19,5 +19,5 @@ export type StoryConversation = StoryTalk | StoryBreak;
 export type Story = {
   id: number,
   title: string,
-  conversations: Array<StoryConversation>,
+  conversations: StoryConversation[],
 };

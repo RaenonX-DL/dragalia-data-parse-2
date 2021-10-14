@@ -13,7 +13,7 @@ export class AbilityAsset extends MasterAsset<number, AbilityOriginal, AbilityEn
     });
   }
 
-  getAllAbilityOf(abilityId: number): Array<AbilityEntry> {
+  getAllAbilityOf(abilityId: number): AbilityEntry[] {
     const abilityData = [];
     const current = [this.getDataOfIdThrow(abilityId)];
     const traversedIds = new Set<number>([abilityId]);

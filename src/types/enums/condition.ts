@@ -316,4 +316,4 @@ export type Condition =
 // endregion
 // endregion
 
-export type ConditionComposite = Array<Condition>;
+export type ConditionComposite = Condition[];

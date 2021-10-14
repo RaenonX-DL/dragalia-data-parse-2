@@ -1,4 +1,4 @@
 import {Story} from '../unit/story';
 
 
-export type StoryBook = Array<Story>;
+export type StoryBook = Story[];

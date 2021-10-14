@@ -3,7 +3,7 @@ import {AbilityVariantType} from '../../../types/enums/abilityVariant';
 
 type AbilityVariantProps = {
   type: AbilityVariantType,
-  id: Array<number>,
+  id: number[],
   str: string,
   upValue: number,
 };
@@ -11,7 +11,7 @@ type AbilityVariantProps = {
 export class AbilityVariant implements AbilityVariantProps {
   type: AbilityVariantType;
 
-  id: Array<number>;
+  id: number[];
   str: string;
 
   upValue: number;

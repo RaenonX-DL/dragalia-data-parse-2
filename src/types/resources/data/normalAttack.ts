@@ -1,4 +1,4 @@
 import {AutoChain} from '../unit/normalAttack';
 
 
-export type AutoChainCollection = Array<AutoChain>;
+export type AutoChainCollection = AutoChain[];

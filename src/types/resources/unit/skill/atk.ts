@@ -36,8 +36,8 @@ export type TimingData = {
 };
 
 export type AttackingSkillInfoExclusive = {
-  mods: Array<ModsUnit>,
-  afflictions: Array<AfflictionUnit>,
+  mods: ModsUnit[],
+  afflictions: AfflictionUnit[],
   boost: {
     buff: {
       field: BuffFieldBoost,
@@ -45,7 +45,7 @@ export type AttackingSkillInfoExclusive = {
   }
   dispel: boolean,
   timing: TimingData,
-  cancelActions: Array<CancelUnit>,
+  cancelActions: CancelUnit[],
 };
 
 export type AttackingSkillInfo = CommonSkillInfo & AttackingSkillInfoExclusive;

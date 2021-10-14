@@ -6,4 +6,4 @@ export type BasicCharaInfo = BasicUnitInfo & {
   hasUniqueDragon: boolean,
 };
 
-export type BasicCharaInfoCollection = Array<BasicCharaInfo>;
+export type BasicCharaInfoCollection = BasicCharaInfo[];

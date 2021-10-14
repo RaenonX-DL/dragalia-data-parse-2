@@ -1,9 +1,9 @@
 type CurveBreakpoint = {key: number, value: number};
 
 export class CurveObject {
-  breakpoints: Array<CurveBreakpoint>;
+  breakpoints: CurveBreakpoint[];
 
-  constructor(breakpoints: Array<CurveBreakpoint>) {
+  constructor(breakpoints: CurveBreakpoint[]) {
     this.breakpoints = breakpoints.sort((a, b) => b.key - a.key);
   }
 

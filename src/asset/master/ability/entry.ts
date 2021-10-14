@@ -32,11 +32,11 @@ export class AbilityEntry extends MasterEntry<number> {
     ];
   }
 
-  get childAbilityIds(): Array<number> {
+  get childAbilityIds(): number[] {
     return this.variants.map((variant) => variant.otherAbilityId).filter(isNonNil());
   }
 
-  get actionConditionIds(): Array<number> {
+  get actionConditionIds(): number[] {
     return this.variants.map((variant) => variant.triggeredActionConditionId).filter(isNonNil());
   }
 }
