@@ -18,7 +18,7 @@ export type SkillData = {
   conditions: ConditionComposite[],
   skillDataId: number,
   hitLabels: string[],
-  params: DeepPartial<SkillDataParams>
+  params?: DeepPartial<SkillDataParams>
 };
 
 export type SkillDataCollection = SkillData[];

@@ -42,14 +42,14 @@ export class HitDataCollection {
       damage: hitData.hitAttr.mod,
       boost: {
         buff: {
-          count: hitData.hitAttr.toBuffCountBoost(manager, data.params.buff?.inEffect || 0),
+          count: hitData.hitAttr.toBuffCountBoost(manager, data.params?.buff?.inEffect || 0),
         },
         enmity: hitData.hitAttr.boost.enmity,
       },
     }));
     this.afflictions = this.hits.map((hitData) => hitData.toAfflictionUnit()).filter(isNonNil());
     this.canDispel = this.hits.some((data) => data.actionCond?.efficacy === EfficacyType.DISPEL);
-    this.buffZoneBoost = {self: 0, ally: 0, ...data.params.buff?.field || {}};
+    this.buffZoneBoost = {self: 0, ally: 0, ...data.params?.buff?.field || {}};
   }
 
   _conditionElementsSelf(): ConditionComposite[] {
