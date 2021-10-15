@@ -1,17 +1,15 @@
-import * as fs from 'fs';
 import * as path from 'path';
-
-import * as yaml from 'js-yaml';
 
 import {Config} from '../types/config';
 import {AssetLanguage, AssetLanguageLocale} from '../types/enums/lang';
+import {loadYaml} from '../utils/load';
 
 
 export class Environment {
   config: Config;
 
   constructor(configPath: string) {
-    this.config = yaml.load(fs.readFileSync(configPath, 'utf-8')) as Config;
+    this.config = loadYaml(configPath);
   }
 
   get skillDataDir(): string {

@@ -1,7 +1,6 @@
-import * as fs from 'fs';
-
 import {Environment} from '../../../process/env';
 import {AssetLanguage} from '../../../types/enums/lang';
+import {loadJson} from '../../../utils/load';
 import {MasterEntry} from './entry';
 import {DataIdType, MasterData, MasterOriginal} from './type';
 
@@ -18,11 +17,9 @@ export class MasterAsset<K extends DataIdType, D extends MasterOriginal<K>, T ex
   _lookup: {[id in string]?: T};
 
   protected constructor({environment, fileName, transform, lang}: MasterAssetInitOptions<D, T>) {
-    const fileContent = fs.readFileSync(
+    const data = loadJson<MasterData<K, D>>(
       environment.getLocalizedAssetPath(lang || 'jp', `${fileName}.json`),
-      'utf-8',
     );
-    const data = JSON.parse(fileContent) as MasterData<K, D>;
 
     this._data = data.dict.entriesValue.map((entry) => transform(entry));
     this._lookup = Object.fromEntries(this._data.map((entry) => [entry.id, entry]));
