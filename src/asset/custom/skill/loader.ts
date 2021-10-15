@@ -1,10 +1,9 @@
-import * as fs from 'fs';
 import * as path from 'path';
 
-import * as yaml from 'js-yaml';
-
+import {loadYaml} from '../../../utils/load';
 import {walk} from '../../../utils/path';
 import {SkillDataCollection} from './type';
+import {validateCollection} from './util';
 
 
 export class SkillLoader {
@@ -40,6 +39,10 @@ export class SkillLoader {
       throw new Error(`Unit #${unitId} does not have associated skill data file`);
     }
 
-    return yaml.load(fs.readFileSync(filePath, 'utf-8')) as SkillDataCollection;
+    const collection = loadYaml<SkillDataCollection>(filePath);
+
+    validateCollection(collection);
+
+    return collection;
   }
 }
