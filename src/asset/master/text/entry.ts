@@ -3,7 +3,7 @@ import {TextOriginal} from './type';
 
 
 export class TextEntry extends MasterEntry<string> {
-  text: string;
+  readonly text: string;
 
   constructor(entry: TextOriginal) {
     super(entry);

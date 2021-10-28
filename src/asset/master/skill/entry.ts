@@ -4,11 +4,11 @@ import {SkillOriginal} from './type';
 
 
 export class SkillEntry extends MasterEntry<number> {
-  nameLabel: string;
-  sp: number;
-  ssSp: number;
-  abilityId: number;
-  actionIds: number[];
+  readonly nameLabel: string;
+  readonly sp: number;
+  readonly ssSp: number;
+  readonly abilityId: number;
+  readonly actionIds: readonly number[];
 
   constructor(entry: SkillOriginal) {
     super(entry);

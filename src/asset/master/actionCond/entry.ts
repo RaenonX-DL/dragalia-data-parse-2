@@ -6,16 +6,16 @@ import {ActionCondOriginal} from './type';
 
 
 export class ActionCondEntry extends MasterEntry<number> {
-  infliction: Status;
-  efficacy: EfficacyType;
-  target: ElementFlag;
-  probabilityPct: number;
-  duration: {
-    sec: number,
-    count: number,
-    maxCount: number,
+  readonly infliction: Status;
+  readonly efficacy: EfficacyType;
+  readonly target: ElementFlag;
+  readonly probabilityPct: number;
+  readonly duration: {
+    readonly sec: number,
+    readonly count: number,
+    readonly maxCount: number,
   };
-  regenSpPct: number;
+  readonly regenSpPct: number;
 
   constructor(entry: ActionCondOriginal) {
     super(entry);

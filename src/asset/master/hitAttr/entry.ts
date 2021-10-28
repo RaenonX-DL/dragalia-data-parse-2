@@ -9,29 +9,29 @@ import {HitAttrOriginal} from './type';
 
 
 export class HitAttrEntry extends MasterEntry<string> {
-  target: Target;
-  mod: number;
+  readonly target: Target;
+  readonly mod: number;
 
-  actionCondId: number;
+  readonly actionCondId: number;
 
-  killer: {
-    status: Status[],
-    rate: {
-      fixed: number,
-      combo: CurveObject | null,
+  readonly killer: {
+    readonly status: readonly Status[],
+    readonly rate: {
+      readonly fixed: number,
+      readonly combo: CurveObject | null,
     },
   };
 
-  boost: {
-    state: {
-      od: number,
-      bk: number,
+  readonly boost: {
+    readonly state: {
+      readonly od: number,
+      readonly bk: number,
     },
-    buff: {
-      rate: number,
-      dataId: number
+    readonly buff: {
+      readonly rate: number,
+      readonly dataId: number
     },
-    enmity: number,
+    readonly enmity: number,
   };
 
   constructor(entry: HitAttrOriginal) {

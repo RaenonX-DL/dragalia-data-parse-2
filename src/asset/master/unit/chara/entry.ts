@@ -3,8 +3,8 @@ import {CharaOriginal} from './type';
 
 
 export class CharaEntry extends UnitEntry {
-  ssId: number;
-  ssCost: number;
+  readonly ssId: number;
+  readonly ssCost: number;
 
   constructor(entry: CharaOriginal) {
     super(entry);

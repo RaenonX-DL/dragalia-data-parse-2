@@ -5,7 +5,7 @@ import {AbilityVariant} from './variant';
 
 
 export class AbilityEntry extends MasterEntry<number> {
-  variants: [AbilityVariant, AbilityVariant, AbilityVariant];
+  readonly variants: readonly [AbilityVariant, AbilityVariant, AbilityVariant];
 
   constructor(entry: AbilityOriginal) {
     super(entry);

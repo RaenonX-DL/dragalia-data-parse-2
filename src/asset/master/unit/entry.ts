@@ -6,18 +6,18 @@ import {UnitOriginal} from './type';
 
 
 export abstract class UnitEntry extends MasterEntry<number> {
-  id: number;
-  nameLabels: [string, string];
-  element: Element;
-  rarity: number;
-  baseId: number;
-  variationId: number;
-  cvLabel: {
-    en: string,
-    jp: string,
+  readonly id: number;
+  readonly nameLabels: readonly [string, string];
+  readonly element: Element;
+  readonly rarity: number;
+  readonly baseId: number;
+  readonly variationId: number;
+  readonly cvLabel: {
+    readonly en: string,
+    readonly jp: string,
   };
-  releaseEpoch: number;
-  isPlayable: boolean;
+  readonly releaseEpoch: number;
+  readonly isPlayable: boolean;
 
   protected constructor(entry: UnitOriginal) {
     super(entry);

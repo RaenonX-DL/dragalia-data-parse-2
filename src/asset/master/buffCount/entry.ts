@@ -3,8 +3,8 @@ import {BuffCountOriginal} from './type';
 
 
 export class BuffCountEntry extends MasterEntry<number> {
-  limit: number;
-  base: number;
+  readonly limit: number;
+  readonly base: number;
 
   constructor(entry: BuffCountOriginal) {
     super(entry);
