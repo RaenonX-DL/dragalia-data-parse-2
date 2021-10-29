@@ -1,11 +1,11 @@
-import {Environment} from '../../../../process/env';
+import {GeneralMasterAssetInitOptions} from '../../base/type';
 import {UnitAsset} from '../asset';
 import {CharaEntry} from './entry';
 import {CharaOriginal} from './type';
 
 
 export class CharaAsset extends UnitAsset<CharaOriginal, CharaEntry> {
-  constructor(environment: Environment) {
+  constructor({environment}: GeneralMasterAssetInitOptions) {
     super({
       environment,
       fileName: 'CharaData',

@@ -1,11 +1,11 @@
-import {Environment} from '../../../process/env';
 import {MasterAsset} from '../base/main';
+import {GeneralMasterAssetInitOptions} from '../base/type';
 import {AbilityEntry} from './entry';
 import {AbilityOriginal} from './type';
 
 
 export class AbilityAsset extends MasterAsset<number, AbilityOriginal, AbilityEntry> {
-  constructor(environment: Environment) {
+  constructor({environment}: GeneralMasterAssetInitOptions) {
     super({
       environment,
       fileName: 'AbilityData',

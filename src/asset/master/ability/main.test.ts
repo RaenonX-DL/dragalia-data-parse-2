@@ -19,7 +19,7 @@ describe('Ability asset', () => {
   });
 
   it('gets all related abilities', async () => {
-    const asset = new AbilityAsset(fixture.environment);
+    const asset = new AbilityAsset({environment: fixture.environment});
 
     const abilities = asset.getAllAbilityOf(1);
 

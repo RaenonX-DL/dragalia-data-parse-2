@@ -1,9 +1,13 @@
-import {SkillLoader} from './loader';
+import {fixture} from '../../../../tests/fixtures';
+import {SkillLoader} from './main';
 
 
 describe('Skill loader', () => {
   it('loads skill data of an unit', async () => {
-    const loader = new SkillLoader('./data');
+    const loader = new SkillLoader({
+      environment: fixture.environment,
+      indexPath: fixture.environment.skillDataIndex,
+    });
     const summerChelleId = 10750404;
 
     const collection = await loader.getCollectionOfUnit(summerChelleId);

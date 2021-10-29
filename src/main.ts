@@ -1,16 +1,9 @@
-import {Environment} from './process/env';
+import {LocalEnvironment} from './process/env/local';
 import {AssetProcessor} from './process/processor';
+import {loadYaml} from './utils/load';
 
 
-const main = () => {
-  const environment = new Environment(process.argv[2]);
-  const processor = new AssetProcessor(environment);
+const environment = new LocalEnvironment(loadYaml(process.argv[2]));
+const processor = new AssetProcessor(environment);
 
-  processor.export();
-};
-
-(async () => {
-  main();
-})().catch((e) => {
-  console.error(e);
-});
+processor.export();

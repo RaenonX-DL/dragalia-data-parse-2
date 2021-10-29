@@ -1,6 +1,6 @@
-import {Environment} from '../../process/env';
+import {Environment} from '../../process/env/base';
 import {ActionLoader} from '../custom/action/main';
-import {SkillLoader} from '../custom/skill/loader';
+import {SkillLoader} from '../custom/skill/main';
 
 
 export class CustomAssetManager {
@@ -8,7 +8,7 @@ export class CustomAssetManager {
   skill: SkillLoader;
 
   constructor(environment: Environment) {
-    this.action = new ActionLoader(environment.actionDataDir);
-    this.skill = new SkillLoader(environment.skillDataDir);
+    this.action = new ActionLoader({indexPath: environment.actionDataIndex});
+    this.skill = new SkillLoader({indexPath: environment.skillDataIndex});
   }
 }

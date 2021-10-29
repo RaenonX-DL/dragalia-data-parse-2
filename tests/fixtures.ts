@@ -1,13 +1,14 @@
 import {AssetManager} from '../src/asset/manager/main';
-import {Environment} from '../src/process/env';
+import {LocalEnvironment} from '../src/process/env/local';
+import {loadYaml} from '../src/utils/load';
 
 
 type Fixture = {
-  environment: Environment,
+  environment: LocalEnvironment,
   manager: AssetManager
 };
 
-const environment: Environment = new Environment('config.yaml');
+const environment: LocalEnvironment = new LocalEnvironment(loadYaml('config.yaml'));
 
 export const fixture: Fixture = {
   environment,

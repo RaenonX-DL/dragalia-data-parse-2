@@ -1,4 +1,4 @@
-import {Environment} from '../../process/env';
+import {Environment} from '../../process/env/base';
 import {UnitType} from '../../types/enums/unitType';
 import {AbilityAsset} from '../master/ability/main';
 import {ActionCondAsset} from '../master/actionCond/main';
@@ -28,21 +28,21 @@ export class MasterAssetManager {
   readonly unitData: {[type in UnitType]: CharaAsset | DragonAsset};
 
   constructor(environment: Environment) {
-    this.ability = new AbilityAsset(environment);
-    this.actionCond = new ActionCondAsset(environment);
-    this.buffCount = new BuffCountAsset(environment);
-    this.hitAttr = new HitAttrAsset(environment);
-    this.text = new TextAsset(environment);
-    this.skill = new SkillAsset(environment);
+    this.ability = new AbilityAsset({environment});
+    this.actionCond = new ActionCondAsset({environment});
+    this.buffCount = new BuffCountAsset({environment});
+    this.hitAttr = new HitAttrAsset({environment});
+    this.text = new TextAsset({environment});
+    this.skill = new SkillAsset({environment});
 
     this.enemy = {
-      data: new EnemyDataAsset(environment),
-      param: new EnemyParamAsset(environment),
+      data: new EnemyDataAsset({environment}),
+      param: new EnemyParamAsset({environment}),
     };
 
     this.unitData = {
-      [UnitType.CHARACTER]: new CharaAsset(environment),
-      [UnitType.DRAGON]: new DragonAsset(environment),
+      [UnitType.CHARACTER]: new CharaAsset({environment}),
+      [UnitType.DRAGON]: new DragonAsset({environment}),
     };
   }
 }

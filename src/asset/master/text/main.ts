@@ -1,8 +1,9 @@
-import {Environment} from '../../../process/env';
+import {Environment} from '../../../process/env/base';
 import {AssetLanguage} from '../../../types/enums/lang';
 import {AssetText} from '../../../types/resources/unit/text';
 import {LocalizedAsset} from '../base/localized';
 import {MasterAsset} from '../base/main';
+import {GeneralMasterAssetInitOptions} from '../base/type';
 import {TextEntry} from './entry';
 import {TextOriginal} from './type';
 
@@ -20,7 +21,7 @@ class TextAssetOfLocale extends MasterAsset<string, TextOriginal, TextEntry> {
 
 
 export class TextAsset extends LocalizedAsset<string, TextOriginal, TextEntry, TextAssetOfLocale> {
-  constructor(environment: Environment) {
+  constructor({environment}: GeneralMasterAssetInitOptions) {
     super({
       constructAsset: (lang) => new TextAssetOfLocale(environment, lang),
     });

@@ -1,4 +1,4 @@
-import {Environment} from '../../process/env';
+import {Environment} from '../../process/env/base';
 import {CustomAssetManager} from './custom';
 import {MasterAssetManager} from './master';
 
