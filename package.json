@@ -4,7 +4,8 @@
   "description": "Rewritten Dragalia Lost data parser.",
   "main": "./dist/main.js",
   "scripts": {
-    "dev": "ts-node src/main.ts",
+    "dev:build": "ts-node src/main.ts build",
+    "dev:export": "ts-node src/main.ts export",
     "build": "tsc -p .",
     "test": "jest --maxWorkers=50% --colors",
     "test:ci-jest": "npm run test -- --reporters=default --reporters=jest-junit --coverage",
