@@ -13,6 +13,8 @@ export abstract class Environment {
 
   abstract getLocalizedMasterAssetPath(lang: AssetLanguage, fileNameWithExt: string): string;
 
+  abstract loadContentAsString(path: string): string;
+
   private get indexDirParts(): string[] {
     return [
       this.config.data.custom,

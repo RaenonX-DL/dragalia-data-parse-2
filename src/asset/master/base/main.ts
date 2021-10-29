@@ -1,6 +1,6 @@
 import {Environment} from '../../../process/env/base';
 import {AssetLanguage} from '../../../types/enums/lang';
-import {loadJson} from '../../../utils/load';
+import {toJson} from '../../../utils/load';
 import {MasterEntry} from './entry';
 import {DataIdType, MasterData, MasterOriginal} from './type';
 
@@ -13,24 +13,26 @@ export type MasterAssetInitOptions<D, T> = {
 };
 
 export class MasterAsset<K extends DataIdType, D extends MasterOriginal<K>, T extends MasterEntry<K>> {
-  private readonly _data: T[];
-  private readonly _lookup: {[id in string]?: T};
+  private readonly data: T[];
+  private readonly lookup: {[id in string]?: T};
 
   protected constructor({environment, fileName, transform, lang}: MasterAssetInitOptions<D, T>) {
-    const data = loadJson<MasterData<K, D>>(
-      environment.getLocalizedMasterAssetPath(lang || 'jp', `${fileName}.json`),
+    const data = toJson<MasterData<K, D>>(
+      environment.loadContentAsString(
+        environment.getLocalizedMasterAssetPath(lang || 'jp', `${fileName}.json`),
+      ),
     );
 
-    this._data = data.dict.entriesValue.map((entry) => transform(entry));
-    this._lookup = Object.fromEntries(this._data.map((entry) => [entry.id, entry]));
+    this.data = data.dict.entriesValue.map((entry) => transform(entry));
+    this.lookup = Object.fromEntries(this.data.map((entry) => [entry.id, entry]));
   }
 
   get allIds(): string[] {
-    return Object.keys(this._lookup);
+    return Object.keys(this.lookup);
   }
 
   getDataOfId(id: K): T | undefined {
-    return this._lookup[id.toString()];
+    return this.lookup[id.toString()];
   }
 
   getDataOfIdThrow(id: K): T {

@@ -1,6 +1,6 @@
 import path from 'path';
 
-import {loadJson} from '../../../utils/load';
+import {toJson} from '../../../utils/load';
 import {walk} from '../../../utils/path';
 import {Loader} from '../base/main';
 import {Action} from './data';
@@ -10,7 +10,7 @@ export class ActionLoader extends Loader<Action> {
   async getActionData(actionId: number): Promise<Action> {
     return this.getDataOfKey(
       ActionLoader.getActionFileName(actionId),
-      (filePath) => new Action(loadJson(filePath)),
+      async (filePath) => new Action(toJson(this.environment.loadContentAsString(filePath))),
     );
   }
 

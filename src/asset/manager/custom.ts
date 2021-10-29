@@ -8,7 +8,7 @@ export class CustomAssetManager {
   skill: SkillLoader;
 
   constructor(environment: Environment) {
-    this.action = new ActionLoader({indexPath: environment.actionDataIndex});
-    this.skill = new SkillLoader({indexPath: environment.skillDataIndex});
+    this.action = new ActionLoader({indexPath: environment.actionDataIndex, environment});
+    this.skill = new SkillLoader({indexPath: environment.skillDataIndex, environment});
   }
 }

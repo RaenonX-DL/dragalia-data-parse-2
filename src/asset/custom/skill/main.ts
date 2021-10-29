@@ -1,6 +1,6 @@
 import * as path from 'path';
 
-import {loadYaml} from '../../../utils/load';
+import {toYaml} from '../../../utils/load';
 import {walk} from '../../../utils/path';
 import {Loader} from '../base/main';
 import {SkillDataCollection} from './type';
@@ -11,8 +11,8 @@ export class SkillLoader extends Loader<SkillDataCollection> {
   async getCollectionOfUnit(unitId: number): Promise<SkillDataCollection> {
     return this.getDataOfKey(
       unitId.toString(),
-      (filePath) => {
-        const collection = loadYaml<SkillDataCollection>(filePath);
+      async (filePath) => {
+        const collection = toYaml<SkillDataCollection>(this.environment.loadContentAsString(filePath));
 
         validateCollection(collection);
 

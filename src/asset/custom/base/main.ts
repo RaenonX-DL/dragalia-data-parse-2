@@ -1,24 +1,29 @@
 import * as fs from 'fs';
 
+import {Environment} from '../../../process/env/base';
 import {dumpJson} from '../../../utils/dump';
-import {loadJson} from '../../../utils/load';
+import {toJson} from '../../../utils/load';
 import {LoaderIndex} from './type';
 
 
 export type LoaderInitOptions = {
+  environment: Environment,
   indexPath: string,
 };
 
 export abstract class Loader<T> {
+  readonly data: {[key: string]: T};
+
+  readonly environment: Environment;
   readonly indexPath: string;
   readonly index: LoaderIndex;
 
-  readonly data: {[key: string]: T};
-
-  constructor({indexPath}: LoaderInitOptions) {
+  constructor({environment, indexPath}: LoaderInitOptions) {
     this.data = {};
+
+    this.environment = environment;
     this.indexPath = indexPath;
-    this.index = fs.existsSync(indexPath) ? loadJson(indexPath) : {};
+    this.index = fs.existsSync(indexPath) ? toJson(environment.loadContentAsString(indexPath)) : {};
   }
 
   abstract buildPathIndex(dataDir: string): Promise<{[name: string]: string}>;
@@ -27,7 +32,7 @@ export abstract class Loader<T> {
     dumpJson(await this.buildPathIndex(dataDir), this.indexPath);
   }
 
-  getDataOfKey(key: string, fnConstruct: (filePath: string) => T): T {
+  async getDataOfKey(key: string, fnConstruct: (filePath: string) => Promise<T>): Promise<T> {
     if (key in this.data) {
       return this.data[key];
     }
@@ -40,7 +45,7 @@ export abstract class Loader<T> {
       throw new Error(`Data file of key ${key} does not exist (${filePath})`);
     }
 
-    this.data[key] = fnConstruct(filePath);
+    this.data[key] = await fnConstruct(filePath);
     return this.data[key];
   }
 }

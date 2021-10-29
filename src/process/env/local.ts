@@ -1,3 +1,4 @@
+import fs from 'fs';
 import * as path from 'path';
 
 import {AssetLanguage, AssetLanguageLocale} from '../../types/enums/lang';
@@ -24,5 +25,9 @@ export class LocalEnvironment extends Environment {
 
   getPathFromParts(...parts: string[]): string {
     return path.join(...parts);
+  }
+
+  loadContentAsString(path: string): string {
+    return fs.readFileSync(path, 'utf-8');
   }
 }
