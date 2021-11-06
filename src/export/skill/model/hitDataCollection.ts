@@ -16,7 +16,7 @@ import {
   TargetElementCondition,
   TargetStatusCondition,
 } from '../../../utils/enums/condition';
-import {product} from '../../../utils/iter';
+import {combinations, product} from '../../../utils/iter';
 import {SkillDataExportOptions} from '../type';
 import {HitData} from './hitData';
 
@@ -31,7 +31,7 @@ export class HitDataCollection {
   canDispel: boolean;
   buffZoneBoost: BuffFieldBoost;
 
-  constructor({manager, data}: SkillDataExportOptions) {
+  constructor({manager, data}: Pick<SkillDataExportOptions, 'manager' | 'data'>) {
     this.hits = data.hitLabels
       .map((label) => manager.master.hitAttr.getDataOfIdThrow(label))
       .map((hitAttr) => new HitData({manager, hitAttr}));
@@ -52,8 +52,8 @@ export class HitDataCollection {
     this.buffZoneBoost = {self: 0, ally: 0, ...data.params?.buff?.field || {}};
   }
 
-  _conditionElementsSelf(): ConditionComposite[] {
-    return [...new Set(
+  _conditionElementsSelf(): ConditionComposite[][] {
+    const targetElement = [...new Set(
       this.hits
         .map((hitData) => hitData.actionCond)
         .filter(isNonNil())
@@ -61,13 +61,15 @@ export class HitDataCollection {
         .filter(isNonNil())
         .map((condition) => [condition]),
     )];
+
+    return [targetElement];
   }
 
   _conditionElementsTarget(): ConditionComposite[][] {
     const elements: ConditionComposite[][] = [];
 
-    if (!this.hits.some((data) => data.hitAttr.boostInOd)) {
-      elements.push([['TARGET_OD_STATE']]);
+    if (this.hits.some((data) => data.hitAttr.boostInOd)) {
+      elements.push([['TARGET_OD_STATE'], []]);
     }
 
     const afflictionConditions = [
@@ -75,7 +77,7 @@ export class HitDataCollection {
     ]
       .map((status) => TargetStatusCondition[status])
       .filter(isNonNil());
-    elements.push([afflictionConditions]);
+    elements.push([...combinations(afflictionConditions), []]);
 
     const comboKillerConditions = [
       ...new Set(
@@ -116,11 +118,13 @@ export class HitDataCollection {
   toPossibleConditions(): ConditionComposite[] {
     const elements: ConditionComposite[][] = [
       this.skillData.conditions,
-      this._conditionElementsSelf(),
+      ...this._conditionElementsSelf(),
       ...this._conditionElementsTarget(),
     ];
 
-    return product(...elements).flat();
+    return product(...elements).map((conditionComp) => (
+      conditionComp.reduce((prev, curr) => [...prev, ...curr])
+    ));
   }
 
   async toAttackingExclusive(): Promise<{exclusive: AttackingSkillInfoExclusive, condition: ConditionComposite}[]> {
