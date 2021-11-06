@@ -23,7 +23,7 @@ export abstract class Loader<T> {
 
     this.environment = environment;
     this.indexPath = indexPath;
-    this.index = fs.existsSync(indexPath) ? toJson(environment.loadContentAsString(indexPath)) : {};
+    this.index = fs.existsSync(indexPath) ? toJson(environment.loadLocalContentAsString(indexPath)) : {};
   }
 
   abstract buildPathIndex(dataDir: string): Promise<{[name: string]: string}>;

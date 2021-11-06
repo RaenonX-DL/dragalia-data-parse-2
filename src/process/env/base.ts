@@ -1,3 +1,5 @@
+import fs from 'fs';
+
 import {Config} from '../../types/config';
 import {AssetLanguage} from '../../types/enums/lang';
 
@@ -44,5 +46,9 @@ export abstract class Environment {
 
   get actionDataIndex(): string {
     return this.getPathFromParts(...this.indexDirParts, 'action.json');
+  }
+
+  loadLocalContentAsString(path: string): string {
+    return fs.readFileSync(path, 'utf-8');
   }
 }

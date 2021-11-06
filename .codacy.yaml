@@ -6,6 +6,9 @@ engines:
       - "**.test.ts"
       # Test data
       - "test/data/**"
+      # Scripts
+      - "./scripts/**"
+
 exclude_paths:
   # Typings
   - "./src/types/resources/**"

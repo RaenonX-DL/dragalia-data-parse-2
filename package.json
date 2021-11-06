@@ -6,6 +6,7 @@
   "scripts": {
     "dev:build": "ts-node src/main.ts build",
     "dev:export": "ts-node src/main.ts export",
+    "script:idDiff": "ts-node scripts/execute/idDiff.ts",
     "build": "tsc -p .",
     "test": "jest --maxWorkers=50% --colors",
     "test:ci-jest": "npm run test -- --reporters=default --reporters=jest-junit --coverage",

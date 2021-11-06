@@ -1,4 +1,3 @@
-import fs from 'fs';
 import * as path from 'path';
 
 import {AssetLanguage, AssetLanguageLocale} from '../../types/enums/lang';
@@ -28,6 +27,6 @@ export class LocalEnvironment extends Environment {
   }
 
   loadContentAsString(path: string): string {
-    return fs.readFileSync(path, 'utf-8');
+    return this.loadLocalContentAsString(path);
   }
 }
