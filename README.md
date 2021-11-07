@@ -54,3 +54,15 @@ Pull project dependencies:
 ```bash
 git submodule update --init --recursive
 ```
+
+Build before the first run:
+
+```bash
+npm run dev:build
+```
+
+or
+
+```bash
+npm run prod:build
+```

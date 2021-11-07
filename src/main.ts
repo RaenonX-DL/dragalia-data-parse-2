@@ -13,7 +13,7 @@ const main = async () => {
   } else if (command === 'build') {
     await processor.build();
   } else {
-    console.log('Available commands: `export` and `build`.');
+    console.log('Available commands are `export` and `build`.');
   }
 };
 

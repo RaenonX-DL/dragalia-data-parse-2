@@ -19,6 +19,8 @@ junit.xml
 
 # Output files
 .export
+.buildinfo.json
+data/index
 
 # Sandbox
 sandbox.ts

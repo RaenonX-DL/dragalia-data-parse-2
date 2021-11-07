@@ -6,6 +6,8 @@
   "scripts": {
     "dev:build": "ts-node src/main.ts build",
     "dev:export": "ts-node src/main.ts export",
+    "prod:build": "node dist/src/main.js build",
+    "prod:export": "node dist/src/main.js export",
     "script:idDiff": "ts-node scripts/execute/idDiff.ts",
     "build": "tsc -p .",
     "test": "jest --maxWorkers=50% --colors",
