@@ -27,7 +27,6 @@ export class AssetProcessor {
   async build(): Promise<void> {
     const config = this.environment.config;
 
-    await this.assets.custom.skill.build(path.join(config.data.custom, 'skill'));
     await this.assets.custom.action.build(path.join(config.data.asset, ...Environment.resourceRootParts, 'actions'));
 
     fs.writeFile(
