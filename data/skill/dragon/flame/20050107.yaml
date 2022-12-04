@@ -1,8 +1,0 @@
-- skillDataId: 200501071
-  identifier:
-    - cht: 大招
-      en: Ultimate
-      jp: スキル
-  conditions: [[]]
-  hitLabels:
-    - S082_001_LV02
